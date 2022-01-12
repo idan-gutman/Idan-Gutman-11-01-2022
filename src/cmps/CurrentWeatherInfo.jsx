@@ -31,7 +31,7 @@ export const CurrentWeatherInfo = ({ currentLocation }) => {
           // console.log(currentLocation);
           if (isLiking) dispatch(saveToFavorites(currentLocation));
         } else {
-          // console.log(currentLocation);
+          console.log(currentLocation);
           if (!isLiking) dispatch(removeFromFavorites(currentLocation));
         }
       }
