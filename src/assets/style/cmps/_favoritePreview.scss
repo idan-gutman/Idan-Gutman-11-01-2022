@@ -1,0 +1,69 @@
+.favorite-preview {
+    margin-top: 10px;
+    display: flex;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+    p {
+        padding: 10px;
+        font-size: 1.2rem;
+    }
+
+    .favorite-card {
+        padding: 10px;
+        .tempature {
+            margin: 10px 0;
+            display: flex;
+            font-weight: bold;
+            p {
+                padding: 4px;
+            }
+            &.min {
+                color: rgb(125, 125, 125);
+            }
+        }
+    }
+    .card-container {
+        .delete-btn {
+            cursor: pointer;
+            align-self: flex-end;
+            width: 20px;
+            height: 25px;
+        }
+    }
+
+    @include for-normal-layout {
+        img {
+            max-width: 300px;
+        }
+    }
+    @include for-narrow-layout {
+        img {
+            min-width: 135px;
+        }
+        .title {
+            font-size: 20px;
+        }
+    }
+    @include for-mobile-layout {
+        margin-left: 0;
+        p {
+            font-size: 22px;
+        }
+        .weather-card {
+            padding: 2px;
+            .card-container {
+                img {
+                    margin: 10px 0;
+                }
+                .tempature {
+                    margin: 10px 5px;
+                    display: flex;
+                    &.min {
+                        color: rgb(125, 125, 125);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+.current-location-container {
+    margin-top: 20px;
+    justify-content: space-between;
+
+    @include for-mobile-layout {
+        flex-direction: column;
+    }
+
+    @include for-narrow-layout {
+        .current-info {
+            p {
+                line-height: 1.2;
+                &:first-child {
+                    font-size: 20px;
+                    font-weight: bolder;
+                }
+                font-size: 16px;
+            }
+        }
+    }
+
+    .right-info-container {
+        @include for-mobile-layout {
+            & > p {
+                width: 80px;
+            }
+            p {
+                font-size: 68px;
+                margin-left: 10px;
+                margin-top: -4px;
+            }
+            img {
+                height: 100px;
+                width: 100px;
+            }
+            .unit-selector {
+                user-select: none;
+                margin-top: -10px;
+                margin-left: 5px;
+            }
+        }
+
+        @include for-narrow-layout {
+            & > p {
+                // width: 50px;
+            }
+            p {
+                font-size: 40px;
+                margin-left: 10px;
+                margin-top: -4px;
+            }
+            img {
+                height: 50px;
+                width: 50px;
+            }
+            .unit-selector {
+                margin-top: -10px;
+                margin-left: 5px;
+            }
+        }
+        @include for-normal-layout {
+            p {
+                font-size: 48px;
+                margin-left: 10px;
+                margin-top: -4px;
+            }
+            img {
+                height: 60px;
+                width: 60px;
+            }
+        }
+    }
+
+    .heart-container {
+        margin-left: 10px;
+        .heart {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+        }
+    }
+    @include for-normal-layout {
+        .current-info {
+            p:first-child {
+                font-size: 32px;
+            }
+        }
+    }
+
+    @include for-mobile-layout {
+        .left-info-container {
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .current-info {
+            font-size: 30px;
+            p {
+                &:last-child {
+                    font-size: 20px;
+                    margin-top: -10px;
+                }
+            }
+        }
+
+        .heart-container {
+            margin-left: 10px;
+            .heart {
+                width: 100px;
+                height: 100px; 
+            }
+        }
+    }
+}
