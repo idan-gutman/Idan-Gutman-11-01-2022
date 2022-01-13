@@ -21,6 +21,8 @@
 
     .right-info-container {
         @include for-mobile-layout {
+            margin-top: 10px;
+            justify-content: center;
             & > p {
                 width: 80px;
             }
@@ -72,7 +74,7 @@
     }
 
     .heart-container {
-        margin-left: 10px;
+        margin-inline-end: 10px;
         .heart {
             width: 60px;
             height: 60px;

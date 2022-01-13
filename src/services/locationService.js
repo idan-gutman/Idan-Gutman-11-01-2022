@@ -1,8 +1,4 @@
 import { storageService } from "./storageService"
-import { toast } from "react-toastify";
-
-const notify = (msg) => toast(msg);
-
 const LOCATIONS_KEY = 'favorites'
 const CURRENT_LOCATION_KEY = 'currentLocation'
 
@@ -35,11 +31,11 @@ const getFavoriteById = (key) => {
     return Promise.resolve(location)
 }
 
-// const setCurrentLocation = (location) => {
-//     storageService.saveToStorage(CURRENT_LOCATION_KEY, location)
-//     defualtLocation = { ...location }
-//     return Promise.resolve(location)
-// }
+const setCurrentLocation = (location) => {
+    storageService.saveToStorage(CURRENT_LOCATION_KEY, location)
+    defualtLocation = { ...location }
+    return Promise.resolve(location)
+}
 
 const save = (locationToSave) => {
     favorites.push(locationToSave) 
@@ -64,7 +60,7 @@ function _loadLocations() {
 
 export const locationService = {
     getDefaultLocation,
-    // setCurrentLocation,
+    setCurrentLocation,
     _loadLocations,
     getFavoriteById,
     save,

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import './assets/main.css'
 import './assets/style/main.scss'
 import { AppHeader } from './cmps/AppHeader';
 import { Favorites } from './pages/Favorites';

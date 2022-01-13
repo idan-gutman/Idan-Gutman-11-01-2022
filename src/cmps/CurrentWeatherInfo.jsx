@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { weatherService } from "../services/weatherService";
 import { SearchBar } from "./SearchBar";
 import { ReactComponent as Heart } from "../assets/images/heart.svg";
-import { locationService } from "../services/locationService";
 import {
   removeFromFavorites,
   saveToFavorites,
@@ -11,44 +10,37 @@ import {
 import { ReactComponent as FilledHeart } from "../assets/images/filled_heart.svg";
 
 export const CurrentWeatherInfo = ({ currentLocation }) => {
-  const { isDarkMode ,isCelsius,favoriteLocations} = useSelector((state) => state.weatherModule);
-  const [isLiking, setIsLiking] = useState(false);
+  const { isDarkMode, isCelsius, favoriteLocations } = useSelector((state) => state.weatherModule);
+  const [isLiking, setIsLiking] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(favoriteLocations);
-    if (currentLocation) isLocationFavorite();
-    // console.log(1);
+    if (currentLocation) onSetIsLiking();
   }, [currentLocation]);
 
   useEffect(() => {
-    (async () => {
-      if (currentLocation) {
-        // const isLocationSaved = await locationService.getFavoriteById(currentLocation.info.Key);
-        const isLocationSaved = findFavorits(currentLocation.info.Key);
-        console.log(isLocationSaved);
-        if (!isLocationSaved) {
-          // console.log(currentLocation);
-          if (isLiking) dispatch(saveToFavorites(currentLocation));
-        } else {
-          console.log(currentLocation);
-          if (!isLiking) dispatch(removeFromFavorites(currentLocation));
-        }
-      }
-    })();
+    onSaveToFavorites()
   }, [isLiking]);
 
-  const isLocationFavorite = async () => {
+  const onSaveToFavorites = async () => {
+    if (!currentLocation) return
+    if (isLiking === null) return
+    const isLocationSaved = findFavorits(currentLocation.info.Key);
+    if (!isLocationSaved) {
+      if (isLiking) dispatch(saveToFavorites(currentLocation));
+    }
+    else {
+      if (!isLiking) dispatch(removeFromFavorites(currentLocation));
+    }
+  }
+
+  const onSetIsLiking = async () => {
     const isLocationSaved = findFavorits(currentLocation.info.Key);
     !isLocationSaved ? setIsLiking(false) : setIsLiking(true);
-    // console.log(2);
-
   };
 
-  const findFavorits = (key) =>{
-    const isLocationSaved= favoriteLocations.find(favorite=>favorite.info.Key === key)
-    console.log(favoriteLocations);
-    console.log(isLocationSaved);
+  const findFavorits = (key) => {
+    const isLocationSaved = favoriteLocations.find(favorite => favorite.info.Key === key)
     return isLocationSaved
   }
 
@@ -56,7 +48,7 @@ export const CurrentWeatherInfo = ({ currentLocation }) => {
     setIsLiking(status);
   };
 
-  const { fahrenheitToCelsius} = weatherService
+  const { fahrenheitToCelsius } = weatherService
 
   return (
     <section className="current-location-container flex select">
@@ -64,13 +56,13 @@ export const CurrentWeatherInfo = ({ currentLocation }) => {
         <div className="heart-container">
           {!isLiking && (
             <Heart onClick={() => toggleFavorite(true)} className="heart" />
-          )}
+            )}
           {isLiking && (
             <FilledHeart
-              onClick={() => toggleFavorite(false)}
-              className="heart"
+            onClick={() => toggleFavorite(false)}
+            className="heart"
             />
-          )}
+            )}
         </div>
 
         <div className={`current-info ${isDarkMode ? "dark" : ""}`}>
@@ -80,7 +72,7 @@ export const CurrentWeatherInfo = ({ currentLocation }) => {
         </div>
       </div>
 
-      <SearchBar />
+            <SearchBar />
 
       <div className="right-info-container flex">
         <img
@@ -89,8 +81,8 @@ export const CurrentWeatherInfo = ({ currentLocation }) => {
         />
         {currentLocation && isCelsius && <p>{fahrenheitToCelsius(currentLocation?.currWeather[0]?.Temperature?.Maximum?.Value)}</p>}
         {currentLocation && !isCelsius && <p>{currentLocation?.currWeather[0]?.Temperature?.Maximum?.Value}</p>}
-         {currentLocation && isCelsius&& <span>°C</span> }
-         {currentLocation && !isCelsius&&<span> °F</span>}
+        {currentLocation && isCelsius && <span>°C</span>}
+        {currentLocation && !isCelsius && <span> °F</span>}
 
       </div>
     </section>

@@ -1,19 +1,26 @@
-import { useEffect, useState } from 'react'
+import {useEffect, useState } from "react"
 
-export const useForm = (initialState, cb = () => { }) => {
-  const [fields, setFields] = useState(initialState)
+export const useGeoLocationBtn = () => {
+    const [userLocation, setUserLocation] = useState(null)
 
-  useEffect(() => {
-    cb(fields)
-  }, [fields])
+    useEffect(() => {
+        getUserLocation()
+    }, [])
 
-  return [
-    fields,
-    function (ev) {
-      const field = ev.target.name
-      const value = (ev.target.type === 'number') ? +ev.target.value : ev.target.value
-      setFields(prevFields => ({ ...prevFields, [field]: value }))
-    },
-    setFields
-  ]
+    const getUserLocation = () => {
+        navigator.geolocation.getCurrentPosition(
+            geoLocationSuccess,
+            geoLocationError
+        );
+    };
+
+    const geoLocationSuccess = (position) => {
+        setUserLocation({ lat: position.coords.latitude, lon: position.coords.longitude })
+    };
+    
+    const geoLocationError = (err) => {
+        setUserLocation(false)
+    };
+
+    return userLocation
 }

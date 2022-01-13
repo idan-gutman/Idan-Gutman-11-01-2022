@@ -18,11 +18,12 @@ export function setCurrentLocation(currentLocation) {
             const locationWeather = await weatherService.getFiveDaysForecast(currentLocation.Key)
             currentLocationObj.currWeather = locationWeather
             currentLocationObj.info = currentLocation
-            // locationService.setCurrentLocation(currentLocationObj)
+            locationService.setCurrentLocation(currentLocationObj)
             dispatch(_setCurrentLocation(currentLocationObj))
         }
     }
 }
+
 
 
 export function saveToFavorites(location) {
@@ -45,6 +46,8 @@ export function removeFromFavorites(location) {
     }
 }
 
+
+
 export function toggleDarkMode() {
     return (dispatch) => dispatch(_toggleDarkMode())
 }
@@ -52,4 +55,5 @@ export function toggleDarkMode() {
 export function toggleUnit(status) {
     return (dispatch) => dispatch(_toggleUnit(status))
 }
+
 

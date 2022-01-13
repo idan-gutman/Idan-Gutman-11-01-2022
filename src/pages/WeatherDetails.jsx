@@ -2,7 +2,9 @@ import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { CurrentWeatherInfo } from '../cmps/CurrentWeatherInfo'
 import { WeatherList } from '../cmps/WeatherList'
+import { useGeoLocationBtn } from '../services/customHooks'
 import { locationService } from '../services/locationService'
+import { weatherService } from '../services/weatherService'
 import { setCurrentLocation } from '../store/actions/WeatherActions'
 
 export const WeatherDetails = () => {
@@ -10,15 +12,21 @@ export const WeatherDetails = () => {
 
     const { currentLocation,isDarkMode} = useSelector(state => state.weatherModule)
 
-      useEffect(() => {
+    const currGeoLocation = useGeoLocationBtn()
+
+    useEffect(() => {
         (async () => {
-            if(!currentLocation){
+            if(currGeoLocation){
+                const geoLocation = await weatherService.getGeoLocation(currGeoLocation.lat, currGeoLocation.lon);
+                dispatch(setCurrentLocation(geoLocation));
+            }
+            else if(!currentLocation){
                 const defaultLocation = await locationService.getDefaultLocation();
                 dispatch(setCurrentLocation(defaultLocation));
-            }
+            }  
         })();
-      }, []);
-
+      }, [currGeoLocation]);
+      
     return (
         <section className={`main-container ${isDarkMode? 'dark':''} ` }>
             <div className="WeatherDetails-container flex column">

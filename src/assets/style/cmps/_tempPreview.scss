@@ -1,0 +1,9 @@
+.temp-container{
+    .temp {
+        margin: 10px 5px;
+        display: flex;
+        &.min {
+            color: #bababa;
+        }
+    }
+}

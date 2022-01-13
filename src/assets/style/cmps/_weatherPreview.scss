@@ -1,14 +1,13 @@
 .weather-preview {
     margin-top: 30px;
     display: flex;
-    margin-left: 10px;
     &:first-child {
         margin-left: 0;
     }
 
     p {
         margin-top: 10px;
-        font-size: 15px;
+        font-size: 20px;
     }
     .weather-card {
         padding: 5px;
@@ -16,32 +15,18 @@
             img {
                 margin: 10px 0;
             }
-            .tempature {
-                margin: 10px 5px;
-                display: flex;
-                &.min {
-                    color: rgb(125, 125, 125);
-                }
-            }
         }
     }
  
     @include for-mobile-layout {
         p {
-            font-size: 12px;
+            font-size: 18px;
         }
         .weather-card {
             padding: 5px;
             .card-container {
                 img {
                     margin: 10px 0;
-                }
-                .tempature {
-                    margin: 10px 5px;
-                    display: flex;
-                    &.min {
-                        color: rgb(125, 125, 125);
-                    }
                 }
             }
         }
