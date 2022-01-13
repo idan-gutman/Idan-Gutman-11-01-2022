@@ -2,7 +2,7 @@
     position: sticky;
     display: flex;
     background-color: #288adb;
-    padding: 15px 50px;
+    padding: 0px 50px;
     justify-content: space-between;
     align-items: center;
 
@@ -15,7 +15,9 @@
     }
 }
 .left-nav {
-    display: block;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     a {
         color: white;
         font-size: 1.5rem;

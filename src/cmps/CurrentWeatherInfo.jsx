@@ -55,12 +55,12 @@ export const CurrentWeatherInfo = ({ currentLocation }) => {
       <div className="left-info-container flex">
         <div className="heart-container">
           {!isLiking && (
-            <Heart onClick={() => toggleFavorite(true)} className="heart" />
+            <Heart onClick={() => toggleFavorite(true)} className="heart pointer" />
             )}
           {isLiking && (
             <FilledHeart
             onClick={() => toggleFavorite(false)}
-            className="heart"
+            className="heart pointer"
             />
             )}
         </div>

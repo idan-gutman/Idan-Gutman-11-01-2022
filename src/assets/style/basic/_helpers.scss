@@ -51,10 +51,8 @@
     font-size: 25px;
 }
 }
-.red {
-  fill: red;
-  color: red;
-}
+
+
 
 .weather-by-hour {
   @include for-mobile-layout {

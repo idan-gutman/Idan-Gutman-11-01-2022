@@ -47,6 +47,17 @@ button {
 
 .pointer{
   cursor: pointer;
+  transition: transform 250ms;
+  &:hover {
+    transform: scale(1.1);
+}
+}
+.card-hover{
+  cursor: pointer;
+  transition: transform 260ms;
+  &:hover {
+    transform: scale(1.02);
+}
 }
 
 a{
