@@ -3,7 +3,6 @@ import { weatherService } from "../services/weatherService";
 import { storageService } from "../services/storageService";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentLocation } from "../store/actions/WeatherActions";
-import { locationService } from "../services/locationService";
 import { debounce } from "lodash";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
@@ -46,7 +45,9 @@ export const SearchBar = () => {
     <section className="search-container">
       <Box
         component="form"
-        sx={{"& > :not(style)": { m: 1, width: "25ch" },}}
+        sx={
+          {"& > :not(style)": { m: 2, width: "25ch"},
+        }}
         noValidate
         autoComplete="off"
       >
@@ -57,6 +58,7 @@ export const SearchBar = () => {
           inputRef={inputRef}
           onChange={handleChange}
           InputLabelProps={{className:`text-field ${isDarkMode ? 'darki':''}`}}
+          InputProps={{className:`text-field ${isDarkMode ? 'darki':''}`}}
         />
         {display && (
           <div className="options-container">

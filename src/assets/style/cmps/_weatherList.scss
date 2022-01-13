@@ -1,7 +1,12 @@
-.weather-list{
+.weather-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 30px 15px;
     justify-items: center;
     margin-bottom: 10px;
+    margin-top: 30px;
+
+    @include for-mobile-layout {
+        margin-top: 0px;
+    }
 }

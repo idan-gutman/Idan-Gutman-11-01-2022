@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 
 const API_WEATHER_URL = 'https://dataservice.accuweather.com';
 
-const API_KEY = 'tBiJIiEX3QUH4wlV1eGDeGPi6evLzjSs';
-// const API_KEY = '6TvuqkQbGVyr8Jxem9hLBmHQkVhCj23y'
+// const API_KEY = 'tBiJIiEX3QUH4wlV1eGDeGPi6evLzjSs';
+const API_KEY = '6TvuqkQbGVyr8Jxem9hLBmHQkVhCj23y'
 // const API_KEY = 'jFNMdQo1pBiVUtWdeO2EFPfHAX7wAJNX'
 // const API_KEY = 'dKKw50ewg2TV00RDzBmObRNk3e1wybJo'
 // const API_KEY = 'urHZKnS2OnuuNhW6lTFXGp7Bplz5ad6w'

@@ -1,7 +1,7 @@
 .favorite-preview {
-    margin-top: 10px;
     display: flex;
     margin-left: 10px;
+    margin-top: 30px;
     margin-bottom: 10px;
 
     p {
@@ -36,6 +36,7 @@
     }
     @include for-mobile-layout {
         margin-left: 0;
+        margin-top: 20px;
         p {
             font-size: 22px;
         }
