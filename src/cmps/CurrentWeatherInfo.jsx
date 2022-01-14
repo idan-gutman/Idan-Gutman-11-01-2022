@@ -67,8 +67,7 @@ export const CurrentWeatherInfo = ({ currentLocation }) => {
 
         <div className={`current-info ${isDarkMode ? "dark" : ""}`}>
           <p>{currentLocation && currentLocation?.info?.LocalizedName}</p>
-          <p>{currentLocation && currentLocation?.currWeather[0]?.Day?.IconPhrase}
-          </p>
+          <p>{currentLocation && currentLocation?.currWeather[0]?.Day?.IconPhrase}</p>
         </div>
       </div>
 
