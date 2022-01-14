@@ -5,9 +5,9 @@ export const WeatherList = ({currentLocation}) => {
 
   return (
     <section className="weather-list">
-      {currentLocation?.currWeather?.map((dailyForecast) => {
+      {currentLocation?.fiveDaysForecast?.map((dailyForecast,idx) => {
         return (
-          <WeatherPreview dailyForecast={dailyForecast} key={Math.random()} />
+          <WeatherPreview dailyForecast={dailyForecast} key={idx} />
         );
       })}
     </section>

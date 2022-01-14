@@ -23,9 +23,6 @@
         @include for-mobile-layout {
             margin-top: 10px;
             justify-content: center;
-            & > p {
-                width: 80px;
-            }
             p {
                 font-size: 68px;
                 margin-left: 10px;
@@ -43,9 +40,6 @@
         }
 
         @include for-narrow-layout {
-            & > p {
-                // width: 50px;
-            }
             p {
                 font-size: 40px;
                 margin-left: 10px;

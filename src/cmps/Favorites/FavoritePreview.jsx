@@ -32,8 +32,8 @@ export const FavoritePreview = ({ location }) => {
       <Card className="favorite-card" onClick={(ev)=>onSelectLocation(ev)}>
         <section className="card-container flex column align-center">
           <p className={'title'}>{location.info.LocalizedName}</p>
-          <img src={`https://www.accuweather.com/images/weathericons/${setIcon(location.currWeather[0].Day.Icon)}.svg`} alt="" />
-              <TempPreview dailyForecast={location.currWeather[0]}/>
+          <img src={`https://www.accuweather.com/images/weathericons/${setIcon(location.fiveDaysForecast[0].Day.Icon)}.svg`} alt="" />
+              <TempPreview dailyForecast={location.fiveDaysForecast[0]}/>
             <Delete onClick={(ev)=>onRemoveFavorite(ev)} className='delete-btn pointer'/>
         </section>
       </Card>

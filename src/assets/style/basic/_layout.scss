@@ -26,13 +26,11 @@
       minmax(rem(16px), 1fr)
       minmax(auto, $mobile-breakpoint)
       minmax(rem(16px), 1fr);
-      // grid-template-columns: 20px 1fr 20px;
 
   }
   @include for-normal-layout {
     grid-template-columns:
       minmax(rem(16px), 1fr)
-      // minmax(auto, $normal-breakpoint)
       minmax(auto, $narrow-breakpoint)
       minmax(rem(16px), 1fr);
   }

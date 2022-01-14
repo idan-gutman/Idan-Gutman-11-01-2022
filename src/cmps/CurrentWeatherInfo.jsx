@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { weatherService } from "../services/weatherService";
 import { SearchBar } from "./SearchBar";
 import { ReactComponent as Heart } from "../assets/images/heart.svg";
 import {
@@ -48,8 +47,6 @@ export const CurrentWeatherInfo = ({ currentLocation }) => {
     setIsLiking(status);
   };
 
-  const { fahrenheitToCelsius } = weatherService
-
   return (
     <section className="current-location-container flex select">
       <div className="left-info-container flex">
@@ -67,7 +64,7 @@ export const CurrentWeatherInfo = ({ currentLocation }) => {
 
         <div className={`current-info ${isDarkMode ? "dark" : ""}`}>
           <p>{currentLocation && currentLocation?.info?.LocalizedName}</p>
-          <p>{currentLocation && currentLocation?.currWeather[0]?.Day?.IconPhrase}</p>
+          <p>{currentLocation && currentLocation?.cuerrWeather[0]?.WeatherText}</p>
         </div>
       </div>
 
@@ -78,8 +75,8 @@ export const CurrentWeatherInfo = ({ currentLocation }) => {
           src={`https://www.accuweather.com/images/weathericons/03.svg`}
           alt=""
         />
-        {currentLocation && isCelsius && <p>{fahrenheitToCelsius(currentLocation?.currWeather[0]?.Temperature?.Maximum?.Value)}</p>}
-        {currentLocation && !isCelsius && <p>{currentLocation?.currWeather[0]?.Temperature?.Maximum?.Value}</p>}
+        {currentLocation && isCelsius && <p>{currentLocation?.cuerrWeather[0]?.Temperature?.Metric?.Value}</p>}
+        {currentLocation && !isCelsius && <p>{currentLocation?.cuerrWeather[0]?.Temperature?.Imperial?.Value}</p>}
         {currentLocation && isCelsius && <span>°C</span>}
         {currentLocation && !isCelsius && <span> °F</span>}
 
