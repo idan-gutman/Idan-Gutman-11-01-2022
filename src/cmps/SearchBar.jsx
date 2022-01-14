@@ -32,13 +32,13 @@ export const SearchBar = () => {
   }, [search]);
 
   const handleChange = ({ target }) => {
-    debounceAutocomplete(target.value);
     setDisplay(true);
+    debounceAutocomplete(target.value);
   };
 
   const debounceAutocomplete = debounce((val) => {
     setSearch(val);
-  }, 1000);
+  }, 300);
 
   
   return (

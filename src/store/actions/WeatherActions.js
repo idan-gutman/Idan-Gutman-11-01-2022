@@ -25,7 +25,6 @@ export function setCurrentLocation(currentLocation) {
 }
 
 
-
 export function saveToFavorites(location) {
     try {
         locationService.save(location)

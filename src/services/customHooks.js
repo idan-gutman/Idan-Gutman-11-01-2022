@@ -1,6 +1,6 @@
 import {useEffect, useState } from "react"
 
-export const useGeoLocationBtn = () => {
+export const useGeoLocation = () => {
     const [userLocation, setUserLocation] = useState(null)
 
     useEffect(() => {

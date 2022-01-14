@@ -49,27 +49,12 @@
   .bold {
     font-weight: 600;
     font-size: 25px;
+    @include for-mobile-layout {
+      font-size: 40px;
+    }
 }
 }
 
-
-
-.weather-by-hour {
-  @include for-mobile-layout {
-    max-width: 88vw ;
-  }
-  @include for-narrow-layout {
-    // max-width: 100%;
-    max-width: 82vw ;
-
-  }
-  @include for-normal-layout {
-    max-width: 90vw ;
-
-  }
-
-  height: 20vh;
-}
 
 .underline {
   border-bottom: #fff 2px solid;
@@ -87,34 +72,4 @@
   color: #4c5055;
 }
 
-$clr1: #4c5055;
-$clr2: #fff;
 
-// Font Sizes
-.fs12 {
-  font-size: rem(12px);
-}
-
-.fs14 {
-  font-size: rem(14px);
-}
-
-.fs18 {
-  font-size: rem(18px);
-}
-
-.fs20 {
-  font-size: rem(20px);
-}
-
-.fs24 {
-  font-size: rem(24px);
-}
-
-.fs28 {
-  font-size: rem(28px);
-}
-
-.fs30 {
-  font-size: rem(30px);
-}

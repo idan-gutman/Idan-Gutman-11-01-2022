@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { CurrentWeatherInfo } from '../cmps/CurrentWeatherInfo'
 import { WeatherList } from '../cmps/WeatherList'
-import { useGeoLocationBtn } from '../services/customHooks'
+import { useGeoLocation } from '../services/customHooks'
 import { locationService } from '../services/locationService'
 import { weatherService } from '../services/weatherService'
 import { setCurrentLocation } from '../store/actions/WeatherActions'
@@ -12,12 +12,13 @@ export const WeatherDetails = () => {
 
     const { currentLocation,isDarkMode} = useSelector(state => state.weatherModule)
 
-    const currGeoLocation = useGeoLocationBtn()
+    const currGeoLocation = useGeoLocation()
 
     useEffect(() => {
         (async () => {
             if(currGeoLocation){
                 const geoLocation = await weatherService.getGeoLocation(currGeoLocation.lat, currGeoLocation.lon);
+                console.log(geoLocation);
                 dispatch(setCurrentLocation(geoLocation));
             }
             else if(!currentLocation){

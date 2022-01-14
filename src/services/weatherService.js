@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 
 const API_WEATHER_URL = 'https://dataservice.accuweather.com';
 
-// const API_KEY = 'tBiJIiEX3QUH4wlV1eGDeGPi6evLzjSs';
-const API_KEY = '6TvuqkQbGVyr8Jxem9hLBmHQkVhCj23y'
+const API_KEY = 'tBiJIiEX3QUH4wlV1eGDeGPi6evLzjSs';
+// const API_KEY = '6TvuqkQbGVyr8Jxem9hLBmHQkVhCj23y'
 // const API_KEY = 'jFNMdQo1pBiVUtWdeO2EFPfHAX7wAJNX'
 // const API_KEY = 'dKKw50ewg2TV00RDzBmObRNk3e1wybJo'
 // const API_KEY = 'urHZKnS2OnuuNhW6lTFXGp7Bplz5ad6w'
@@ -31,6 +31,7 @@ async function getAutocomplete(q) {
         return resp.data
     }
     catch (err) {
+        notify('Error while try to fetch autocomplete search')
         console.error('weatheService: error while try to fetch autocomplete search');
     }
 }
@@ -38,14 +39,13 @@ async function getAutocomplete(q) {
 async function getGeoLocation(lat, lon) {
     try {
         const res = await axios.get(`${API_WEATHER_URL}/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${lat},${lon}`);
-        notify('success getting your location')
+        notify("We've found your location successfully")
         return res.data;
     } catch (error) {
         notify('error while try to get your location')
-        console.error('weather service: error while try to fetch from geolocation api');
+        console.error('weatherService: error while try to fetch geolocation');
     }
 }
-
 
 
 const _checkIfEnglish = (search) =>{
