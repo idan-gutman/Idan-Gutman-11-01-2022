@@ -18,7 +18,6 @@ export const WeatherDetails = () => {
         (async () => {
             if(currGeoLocation){
                 const geoLocation = await weatherService.getGeoLocation(currGeoLocation.lat, currGeoLocation.lon);
-                console.log(geoLocation);
                 dispatch(setCurrentLocation(geoLocation));
             }
             else if(!currentLocation){

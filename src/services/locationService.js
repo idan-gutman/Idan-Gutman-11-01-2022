@@ -26,7 +26,6 @@ const getDefaultLocation = async () => {
 }
 
 const getFavoriteById = (key) => {
-    console.log(favorites);
     const location = favorites.find(location => location.info.Key === key);
     return Promise.resolve(location)
 }
