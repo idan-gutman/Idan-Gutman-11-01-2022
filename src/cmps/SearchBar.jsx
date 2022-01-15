@@ -46,7 +46,9 @@ export const SearchBar = () => {
       <Box
         component="form"
         sx={
-          {"& > :not(style)": { m: 2, width: "25ch"},
+        {"& > :not(style)": { m: 2, width: "25ch", "& .MuiOutlinedInput-root": {
+            "& > fieldset": {borderColor: "#f9a826"}},
+        },
         }}
         noValidate
         autoComplete="off"

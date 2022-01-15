@@ -13,7 +13,7 @@ export const Favorites = () => {
         {!favoriteLocations.length && (
           <div className="empty-favorites flex">
             <h2>No Favorites yet</h2>
-            <Weather className="svg" />
+            <Weather className="weather-svg" />
           </div>
         )}
         <FavoriteList favorites={favoriteLocations} />
